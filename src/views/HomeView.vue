@@ -69,6 +69,8 @@ const data = [
 
 <template>
   <main>
-    {{data}}
+    <div class="word-item" v-for="(item, index) in data[0].items">
+      <span class="word-no">{{ index }}</span><span class="">{{item.word}}</span>
+    </div>
   </main>
 </template>
