@@ -24,6 +24,11 @@ const typeOptions = [
   { label: 'adv.', value: 'adv.' },
   { label: 'n.', value: 'n.' },
 ]
+const formateTypeOptions = [
+  { label: '过去式', value: '过去式' },
+  { label: '过去分词', value: '过去分词' },
+  { label: '复数', value: '复数' },
+]
 const addSense = () => {
   const emptyArr = formState.extraSense.filter(item => !item.word)
   if (emptyArr.length) {
@@ -51,24 +56,44 @@ const addSense = () => {
       <WordFormat :wordInfo="item" :number="index"/>
     </div>
     <div class="add-word">
-      <a-form :labelCol="{ span: 1 }" :wrapperCol="{ span: 9 }">
-        <a-form-item label="单词">
-          <a-input v-model:value="formState.word" />
-        </a-form-item>
-        <a-form-item label="类型">
-          <a-select v-model:value="formState.type" :options="typeOptions" />
-        </a-form-item>
-        <a-form-item label="释义">
-          <a-input v-model:value="formState.text" />
-        </a-form-item>
-        <a-form-item label="引申含义">
-          <div class="extra-sense-box" v-for="sense in formState.extraSense" :key="sense.word">
+      <a-form  layout="">
+        <a-row v-for="word in item.words" :key="word.word">
+          <a-col :span="4">
+            <a-form-item label="单词">
+              <a-input v-model:value="word.word" />
+            </a-form-item>
+          </a-col>
+          <a-col :span="2">
+            <a-form-item label="类型">
+              <a-select v-model:value="word.type" :options="typeOptions" style="width: 80px" />
+            </a-form-item>
+          </a-col>
+          <a-col :span="4">
+            <a-form-item label="释义">
+              <a-input v-model:value="word.text" />
+            </a-form-item>
+          </a-col>
+          <a-row v-for="formate in word.otherFormates" :key="formate.type">
+            <a-col :span="2">
+              <a-form-item label="类型">
+                <a-select v-model:value="formate.type" :options="formateTypeOptions" style="width: 80px" />
+              </a-form-item>
+            </a-col>
+            <a-col :span="4">
+              <a-form-item label="单词">
+                <a-input v-model:value="formate.word" />
+              </a-form-item>
+            </a-col>
+          </a-row>
+        </a-row>
+        <!-- <a-form-item label="引申含义">
+          <div class="extra-sense-box" v-for="formate in word.otherFormates" :key="formate.type">
             <a-form-item label="单词">
               <a-input v-model:value="sense.word" />
             </a-form-item>
           </div>
           <a-button size="small" @click="addSense">添加</a-button>
-        </a-form-item>
+        </a-form-item> -->
       </a-form>
     </div>
   </div>

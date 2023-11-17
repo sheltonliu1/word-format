@@ -25,7 +25,7 @@ defineProps({
       <span v-if="item.otherFormates?.length"
         ><span v-for="(format, index) in item.otherFormates" :key="format.type"
           >{{ `${index === 0 ? '(' : ''}${format.type} `
-          }}<span :class="{ emphasize: format.isEmphasize }">{{ item.word }}</span>
+          }}<span :class="{ emphasize: format.isEmphasize }">{{ format.word }}</span>
           <span v-if="index === item.otherFormates.length - 1">)</span>
         </span></span
       >

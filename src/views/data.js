@@ -16,6 +16,11 @@ export const data = [
                 word: 'deal',
                 isEmphasize: true,
               },
+              {
+                type: '过去分词',
+                word: 'dealed',
+                isEmphasize: true,
+              },
             ],
             isExtra: false,
           },
