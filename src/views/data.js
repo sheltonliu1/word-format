@@ -5,7 +5,7 @@ export const data = [
       {
         words: [
           {
-            word: 'deal',
+            spell: 'deal',
             isEmphasizeWord: true,
             type: 'adj.',
             text: '被遗弃的狗',
@@ -13,19 +13,19 @@ export const data = [
             otherFormates: [
               {
                 type: '过去式',
-                word: 'deal',
+                spell: 'deal',
                 isEmphasize: true,
               },
               {
                 type: '过去分词',
-                word: 'dealed',
+                spell: 'dealed',
                 isEmphasize: true,
               },
             ],
             isExtra: false,
           },
           {
-            word: 'abandoned dogs',
+            spell: 'abandoned dogs',
             isEmphasizeWord: false,
             type: 'adj.',
             text: '被遗弃的狗',
@@ -35,7 +35,7 @@ export const data = [
         ],
         phrases: [
           {
-            word: 'enable sb to do sth',
+            spell: 'enable sb to do sth',
             isEmphasizeWord: false,
             text: '使某人能够做某事',
             isEmphasizeText: false,
