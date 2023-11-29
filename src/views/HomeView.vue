@@ -187,7 +187,8 @@ const add = () => {
 }
 .add-form-box {
   :deep(.ant-form-item) {
-    margin-right: 8px;
+    // margin-right: 8px;
+    margin: 5px 4px;
   }
   margin-top: 20px;
   .word-box-wrap {
@@ -196,6 +197,7 @@ const add = () => {
     .word-upper {
       display: flex;
       justify-content: start;
+      align-items: center;
       .word-self {
         display: flex;
         justify-content: space-between;
