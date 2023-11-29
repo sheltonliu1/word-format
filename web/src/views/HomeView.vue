@@ -23,7 +23,7 @@
                 <a-input v-model:value="word.spell" style="width: 150px" />
               </a-form-item>
               <a-form-item label="强调单词">
-                <a-radio v-model:checked="word.isEmphasizeWord" style="width: 20px" />
+                <a-checkbox v-model:checked="word.isEmphasizeWord" style="width: 20px" />
               </a-form-item>
               <a-form-item label="类型">
                 <a-select v-model:value="word.type" :options="typeOptions" style="width: 80px" />
@@ -32,15 +32,18 @@
                 <a-input v-model:value="word.text" style="width: 150px" />
               </a-form-item>
               <a-form-item label="强调释义">
-                <a-radio v-model:checked="word.isEmphasizeText" style="width: 20px" />
+                <a-checkbox v-model:checked="word.isEmphasizeText" style="width: 20px" />
               </a-form-item>
             </div>
             <div class="add-word">
               <a-button @click="delItem(word, formState.words)" v-if="formState.words.length > 1" type="link" danger>删除</a-button>
-              <a-button @click="addWord" v-if="wIndex === formState.words.length - 1" type="link">添加引申词</a-button>
               <a-button @click="addFormate(word)" v-if="!word.otherFormates.length && wIndex === formState.words.length - 1" type="link"
                 >添加单词形式</a-button
               >
+              <a-button @click="addType(word)" v-if="!word.otherFormates.length && wIndex === formState.words.length - 1" type="link"
+                >添加单词类型</a-button
+              >
+              <a-button @click="addWord" v-if="wIndex === formState.words.length - 1" type="link">添加引申词</a-button>
               <a-button @click="addPhrase" v-if="!formState.phrases.length && wIndex === formState.words.length - 1" type="link">添加短语</a-button>
             </div>
           </div>
@@ -133,7 +136,10 @@ const typeOptions = [
 const formateTypeOptions = [
   { label: '过去式', value: '过去式' },
   { label: '过去分词', value: '过去分词' },
-  { label: '复数', value: '复数' }
+  { label: '现在分词', value: '现在分词' },
+  { label: '复数', value: '复数' },
+  { label: '比较级', value: '比较级' },
+  { label: '最高级', value: '最高级' }
 ]
 const addFormate = (word) => {
   word.otherFormates.push({
@@ -159,7 +165,7 @@ const addWord = () => {
     text: undefined,
     isEmphasizeText: false,
     otherFormates: [],
-    isExtra: false
+    isExtra: true
   })
 }
 const addPhrase = () => {
@@ -187,8 +193,7 @@ const add = () => {
 }
 .add-form-box {
   :deep(.ant-form-item) {
-    // margin-right: 8px;
-    margin: 5px 4px;
+    margin: 5px 5px;
   }
   margin-top: 20px;
   .word-box-wrap {

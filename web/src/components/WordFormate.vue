@@ -20,15 +20,20 @@ defineProps({
     <span v-for="(item, index) in wordInfo.words" :key="index">
       <span class="mr4" v-if="item.isExtra">-></span>
       <span :class="{ emphasize: item.isEmphasizeWord, mr4: true }">{{ item.spell }}</span>
-      <span class="mr4">{{ item.type }}</span>
-      <span :class="{ emphasize: item.isEmphasizeText }">{{ item.text }}</span>
-      <span v-if="item.otherFormates?.length"
-        ><span v-for="(formate, index) in item.otherFormates" :key="formate.type"
-          >{{ `${index === 0 ? '(' : ''}${formate.type} `
-          }}<span :class="{ emphasize: formate.isEmphasize }">{{ formate.spell }}</span>
-          <span v-if="index === item.otherFormates.length - 1">)</span>
-        </span></span
-      >
+      <span v-if="item.types?.length">
+        <span v-for="(typeItem, tIndex) in item.types" :key="typeItem.type" >
+          <span class="ml4 mr4" v-if="tIndex">&</span>
+          <span class="mr4">{{ typeItem.type }}</span>
+          <span :class="{ emphasize: typeItem.isEmphasizeText }">{{ typeItem.text }}</span>
+          <span v-if="typeItem.otherFormates?.length"
+            ><span v-for="(formate, fIndex) in typeItem.otherFormates" :key="formate.type"
+              >{{ `${index === 0 ? '(' : ''}${formate.type} `
+              }}<span :class="{ emphasize: formate.isEmphasize }">{{ formate.spell }}</span>
+              <span v-if="fIndex === typeItem.otherFormates.length - 1">)</span>
+            </span></span
+          >
+        </span>
+      </span>
     </span>
     <span class="word-phrase" v-if="wordInfo.phrases?.length">(ph)</span>
     <span v-for="item in wordInfo.phrases" :key="item.spell">
@@ -44,6 +49,9 @@ defineProps({
   margin-bottom: 6px;
   .mr4 {
     margin-right: 4px;
+  }
+  .ml4 {
+    margin-left: 4px;
   }
   .word-no {
     width: 20px;

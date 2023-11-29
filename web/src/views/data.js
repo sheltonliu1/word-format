@@ -1,26 +1,36 @@
 export const data = [
   {
-    unitNo: 1,
     items: [
       {
         words: [
           {
             spell: 'deal',
             isEmphasizeWord: true,
-            type: 'adj.',
-            text: '被遗弃的狗',
-            isEmphasizeText: false,
-            otherFormates: [
+            types: [
               {
-                type: '过去式',
-                spell: 'deal',
-                isEmphasize: true,
+                type: 'adj.',
+                text: '被遗弃的狗',
+                isEmphasizeText: false,
+                otherFormates: [
+                ],
               },
               {
-                type: '过去分词',
-                spell: 'dealed',
-                isEmphasize: true,
-              },
+                type: 'n.',
+                text: '被遗弃的狗',
+                isEmphasizeText: false,
+                otherFormates: [
+                  {
+                    type: '过去式',
+                    spell: 'deal',
+                    isEmphasize: true,
+                  },
+                  {
+                    type: '过去分词',
+                    spell: 'dealed',
+                    isEmphasize: true,
+                  },
+                ],
+              }
             ],
             isExtra: false,
           },
