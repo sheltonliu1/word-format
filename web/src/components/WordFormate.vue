@@ -27,7 +27,7 @@ defineProps({
           <span :class="{ emphasize: typeItem.isEmphasizeText }">{{ typeItem.text }}</span>
           <span v-if="typeItem.otherFormates?.length"
             ><span v-for="(formate, fIndex) in typeItem.otherFormates" :key="formate.type"
-              >{{ `${index === 0 ? '(' : ''}${formate.type} `
+              >{{ `${fIndex === 0 ? '(' : ''}${formate.type} `
               }}<span :class="{ emphasize: formate.isEmphasize }">{{ formate.spell }}</span>
               <span v-if="fIndex === typeItem.otherFormates.length - 1">)</span>
             </span></span
@@ -35,10 +35,10 @@ defineProps({
         </span>
       </span>
     </span>
-    <span class="word-phrase" v-if="wordInfo.phrases?.length">(ph)</span>
     <span v-for="item in wordInfo.phrases" :key="item.spell">
-      <span :class="{ emphasize: item.isEmphasizeText }">{{ item.text }}</span>
-      <span :class="{ emphasize: item.isEmphasizeWord }">{{ item.spell }}</span>
+      <span class="word-phrase mr4" v-if="wordInfo.phrases?.length">(ph)</span>
+      <span :class="{ emphasize: item.isEmphasizeText }" class="mr4">{{ item.text }}</span>
+      <span :class="{ emphasize: item.isEmphasizeWord }" class="mr4">{{ item.spell }}</span>
     </span>
   </div>
 </template>
@@ -60,10 +60,11 @@ defineProps({
   .emphasize {
     color: red;
     text-decoration: underline;
-    background: #f7f755;
+    // background: #f7f755;
   }
   .word-phrase {
     font-weight: 600;
+    // padding: 0 4px;
   }
 }
 </style>

@@ -37,9 +37,13 @@ export const data = [
           {
             spell: 'abandoned dogs',
             isEmphasizeWord: false,
-            type: 'adj.',
-            text: '被遗弃的狗',
-            isEmphasizeText: false,
+            types: [
+              {
+                type: 'adj.',
+                text: '被遗弃的狗',
+                isEmphasizeText: false,
+              }
+            ],
             isExtra: true,
           }
         ],
