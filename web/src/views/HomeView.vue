@@ -8,7 +8,7 @@
       >编辑</a-button
     >
     <!-- <a-button style="margin-right: 10px"  >取消编辑</a-button> -->
-    <a-button type="primary" v-else @click="state.isEditing = false">打印预览</a-button>
+    <a-button type="primary" v-if="state.isEditing" @click="state.isEditing = false">打印预览</a-button>
   </div>
   <a-menu v-model:selectedKeys="state.currentUnit" mode="horizontal" @select="chooseUnit">
     <a-menu-item v-for="unit in unitArr" :key="unit">
