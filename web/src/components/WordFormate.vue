@@ -54,7 +54,7 @@ defineProps({
     margin-left: 4px;
   }
   .word-no {
-    width: 20px;
+    // width: 20px;
     display: inline-block;
   }
   .emphasize {

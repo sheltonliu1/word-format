@@ -15,12 +15,12 @@
       {{ unit }}
     </a-menu-item>
   </a-menu>
-  <div style="padding: 20px">
+  <div style="padding: 20px; margin-bottom: 100px">
     <div class="word-item-wrap" v-for="(item, index) in allData" :key="item.word">
       <WordFormate :wordInfo="item" :number="index" />
       <div class="" v-if="state.isEditing">
         <a-button type="link" @click="editItem(index, item)" v-if="!(state.editIndex === -1 && index === allData.length - 1)">编辑</a-button>
-        <a-button type="link" danger @click="delItem(index, state.data)" v-if="!(state.editIndex === -1 && index === allData.length - 1)">删除</a-button>
+        <a-button type="link" danger @click="delItem(item, state.data[0].items)" v-if="!(state.editIndex === -1 && index === allData.length - 1)">删除</a-button>
       </div>
     </div>
     <div class="add-form-box" v-show="state.isEditing">
