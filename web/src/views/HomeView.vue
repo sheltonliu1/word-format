@@ -15,7 +15,7 @@
       {{ unit }}
     </a-menu-item>
   </a-menu>
-  <div style="padding: 20px; margin-bottom: 100px">
+  <div style="padding: 20px; padding-bottom: 100px">
     <div class="word-item-wrap" v-for="(item, index) in allData" :key="item.word">
       <WordFormate :wordInfo="item" :number="index" />
       <div class="" v-if="state.isEditing">
