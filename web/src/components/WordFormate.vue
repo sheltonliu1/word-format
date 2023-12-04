@@ -46,7 +46,7 @@ defineProps({
 <style lang="scss" scoped>
 .word-item {
   // font-family: cursive;
-  margin-bottom: 6px;
+  // margin-bottom: 6px;
   .mr4 {
     margin-right: 4px;
   }
