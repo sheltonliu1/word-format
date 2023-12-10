@@ -23,7 +23,7 @@ defineProps({
       <span v-if="item.types?.length">
         <span v-for="(typeItem, tIndex) in item.types" :key="typeItem.type" >
           <span class="ml4 mr4" v-if="tIndex">&</span>
-          <span class="mr4">{{ typeItem.type }}</span>
+          <span class="mr4">{{ typeItem.type === "vt." ? 'v.' : typeItem.type }}</span>
           <span :class="{ emphasize: typeItem.isEmphasizeText }">{{ typeItem.text }}</span>
           <span v-if="typeItem.otherFormates?.length"
             ><span v-for="(formate, fIndex) in typeItem.otherFormates" :key="formate.type"
@@ -36,9 +36,9 @@ defineProps({
       </span>
     </span>
     <span v-for="item in wordInfo.phrases" :key="item.spell">
-      <span class="word-phrase mr4" v-if="wordInfo.phrases?.length">(ph)</span>
+      <span class="word-phrase mr4 ml4" v-if="wordInfo.phrases?.length">(ph)</span>
       <span :class="{ emphasize: item.isEmphasizeText }" class="mr4">{{ item.text }}</span>
-      <span :class="{ emphasize: item.isEmphasizeWord }" class="mr4">{{ item.spell }}</span>
+      <span :class="{ emphasize: item.isEmphasizeWord }">{{ item.spell }}</span>
     </span>
   </div>
 </template>

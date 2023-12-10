@@ -300,12 +300,13 @@ const newEmptyWord = () => {
 const formState = ref(newEmptyWord())
 const typeOptions = [
   { label: 'n.', value: 'n.' },
-  { label: 'vt.', value: 'vt.' },
+  { label: 'v.', value: 'vt.' },
   { label: 'adj.', value: 'adj.' },
   { label: 'adv.', value: 'adv.' },
   { label: 'prep.', value: 'prep.' },
   { label: 'pron.', value: 'pron.' },
-  { label: 'conj.', value: 'conj.' }
+  { label: 'conj.', value: 'conj.' },
+  { label: 'num.', value: 'num.' }
 ]
 const formateTypeOptions = [
   { label: '过去式', value: '过去式' },
@@ -314,6 +315,7 @@ const formateTypeOptions = [
   { label: '复数', value: '复数' },
   { label: '比较级', value: '比较级' },
   { label: '最高级', value: '最高级' },
+  { label: '同义词', value: '同义词' },
   { label: '反义词', value: '反义词' }
 ]
 const addFormate = (item) => {
