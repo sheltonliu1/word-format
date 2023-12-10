@@ -183,7 +183,7 @@ const state = reactive({
   allData: [],
 })
 
-const unitArr = new Array(15);
+const unitArr = new Array(25);
 for(var i=0;i<unitArr.length;i++){
   unitArr[i] = i + 28;
 }
