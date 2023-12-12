@@ -13,31 +13,32 @@ defineProps({
 
 <template>
   <div class="word-item">
-    <div class="word-no">{{ number + 1 }}.</div>
+    <div class="word-no">{{ number + 1 }}.&nbsp;</div>
     <!-- <span :class="{ emphasize: wordInfo.isEmphasizeWord }">{{ wordInfo.word }}</span>
     <span>{{ wordInfo.type }}</span>
     <span :class="{ emphasize: wordInfo.isEmphasizeText }">{{ wordInfo.text }}</span> -->
     <span v-for="(item, index) in wordInfo.words" :key="index">
-      <span class="mr4" v-if="item.isExtra">→</span>
-      <span :class="{ emphasize: item.isEmphasizeWord, mr4: true }">{{ item.spell }}</span>
+      <span class="" v-if="item.isExtra">&nbsp;→&nbsp;</span>
+      <span :class="{ emphasize: item.isEmphasizeWord }">{{ item.spell }}</span>
       <span v-if="item.types?.length">
         <span v-for="(typeItem, tIndex) in item.types" :key="typeItem.type" >
-          <span class="ml4 mr4" v-if="tIndex">&</span>
-          <span class="mr4">{{ typeItem.type === "vt." ? 'v.' : typeItem.type }}</span>
+          <template class="" v-if="tIndex">&nbsp;&</template>
+          {{ typeItem.type === "vt." ? 'v.' : typeItem.type }}
           <span :class="{ emphasize: typeItem.isEmphasizeText }">{{ typeItem.text }}</span>
           <span v-if="typeItem.otherFormates?.length"
             ><span v-for="(formate, fIndex) in typeItem.otherFormates" :key="formate.type"
-              >{{ `${fIndex === 0 ? '(' : ''}${formate.type} `
+              >{{ `${fIndex === 0 ? ' (' : ''}${formate.type} `
               }}<span :class="{ emphasize: formate.isEmphasize }">{{ formate.spell }}</span>
-              <span v-if="fIndex === typeItem.otherFormates.length - 1">)</span>
+              <span v-if="fIndex !== typeItem.otherFormates.length - 1">&nbsp;</span>
+              <span v-if="fIndex === typeItem.otherFormates.length - 1">)&nbsp;</span>
             </span></span
           >
         </span>
       </span>
     </span>
     <span v-for="item in wordInfo.phrases" :key="item.spell">
-      <span class="word-phrase mr4 ml4" v-if="wordInfo.phrases?.length">(ph)</span>
-      <span :class="{ emphasize: item.isEmphasizeText }" class="mr4">{{ item.text }}</span>
+      &nbsp;<span class="word-phrase" v-if="wordInfo.phrases?.length">(ph)</span>&nbsp;
+      <span :class="{ emphasize: item.isEmphasizeText }" class="">{{ item.text }}&nbsp;</span>
       <span :class="{ emphasize: item.isEmphasizeWord }">{{ item.spell }}</span>
     </span>
   </div>
