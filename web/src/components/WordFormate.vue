@@ -18,7 +18,7 @@ defineProps({
     <span>{{ wordInfo.type }}</span>
     <span :class="{ emphasize: wordInfo.isEmphasizeText }">{{ wordInfo.text }}</span> -->
     <span v-for="(item, index) in wordInfo.words" :key="index">
-      <span class="mr4" v-if="item.isExtra">-></span>
+      <span class="mr4" v-if="item.isExtra">→</span>
       <span :class="{ emphasize: item.isEmphasizeWord, mr4: true }">{{ item.spell }}</span>
       <span v-if="item.types?.length">
         <span v-for="(typeItem, tIndex) in item.types" :key="typeItem.type" >
